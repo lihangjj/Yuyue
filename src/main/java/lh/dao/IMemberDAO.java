@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public interface IMemberDAO {
+public interface IMemberDAO extends IDAO<String,Member> {
     boolean doCreate(Member vo) throws Exception;
     List<Member> findAllSplit(Map<String, Object> map);
 }

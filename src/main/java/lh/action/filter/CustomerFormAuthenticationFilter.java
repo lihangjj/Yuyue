@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
  * @author mldn 
  */
 public class CustomerFormAuthenticationFilter extends FormAuthenticationFilter {
+	//这才是最正统的验证码检测
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
 		// 1、如果要想取得在Session中出现的验证码，则必须取得HttpSession接口对象

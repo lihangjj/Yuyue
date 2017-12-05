@@ -12,7 +12,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:applicationContext.xml,
+            classpath:applicationContext.xml,<!--去加在相应的xml文件，这里是末尾逗号，注意-->
             classpath:applicationShiro.xml
         </param-value>
     </context-param>
@@ -108,13 +108,13 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>KaptchaServlet</servlet-name>
-        <url-pattern>/captcha.jpg</url-pattern>
+        <url-pattern>/captcha.jpg</url-pattern><!--这是验证码的引用路径-->
     </servlet-mapping>
     <error-page>
         <exception-type>
             org.apache.shiro.authz.UnauthenticatedException
         </exception-type>
-        <location>/loginUrl</location>
+        <location>/login</location>
     </error-page>
     <error-page>
         <exception-type>

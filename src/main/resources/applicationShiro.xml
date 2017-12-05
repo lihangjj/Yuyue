@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:task="http://www.springframework.org/schema/task"
-	xsi:schemaLocation="
-		http://www.springframework.org/schema/task
-		http://www.springframework.org/schema/task/spring-task-4.1.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
 	<!-- 配置shiro过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<!-- 表示现在要配置的是一个安全管理器 -->
 		<property name="securityManager" ref="securityManager"/>
 		<!-- 出现错误之后的跳转路径的配置 -->
-		<property name="loginUrl" value="/loginUrl.action"/>
+		<property name="loginUrl" value="/login"/>
 		<!-- 认证失败之后的跳转路径页面 -->
 		<property name="unauthorizedUrl" value="/unauthUrl.action"/>
 		<!-- 登录成功之后的跳转访问路径 -->
@@ -35,7 +23,7 @@
 		<!-- shiro里面需要针对于所有的路径进行配置，所有的配置需要通过文本的形式设置 -->
 		<property name="filterChainDefinitions">
 			<value>
-				/loginUrl.action=authc
+				/loginUrl=authc
 				/admin/**=user
 				/*=anon
 			</value>
@@ -51,10 +39,10 @@
 	<!-- 此处表示使用内置的表单登录控制验证 -->
 	<bean id="formAuthenticationFilter" class="lh.action.filter.CustomerFormAuthenticationFilter">
 		<!-- 定义出需要使用的参数，此参数与表单一一对应 -->
-		<property name="usernameParam" value="mid"/>
-		<property name="passwordParam" value="password"/>
-		<property name="rememberMeParam" value="rememberMe"/>
-		<property name="loginUrl" value="/loginUrl.action"/>
+		<property name="usernameParam" value="mid"/> <!--这里的mid必须和页面的三个参数名称一致-->
+		<property name="passwordParam" value="password"/><!--这里的password必须和页面的三个参数名称一致-->
+		<property name="rememberMeParam" value="rememberMe"/> <!--这里的三个rememberMe必须和页面的三个参数名称一致-->
+		<property name="loginUrl" value="/loginUrl"/><!--这里的路径真必须和filterChainDefinitions属性里边的路径一摸一样-->
 	</bean>   
 	
 	<!-- 配置SecurityManager的管理 -->

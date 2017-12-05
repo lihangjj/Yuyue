@@ -3,72 +3,48 @@ package lh.vo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Member implements Serializable{
-    private String mid;
-    private String name;
-
-    @Override
-    public String toString() {
-        return "Member{" +
-                "mid='" + mid + '\'' +
-                ", name='" + name + '\'' +
-                ", note='" + note + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                ", birthday=" + birthday +
-                '}';
-    }
-    public String getMid() {
-        return mid;
-    }
-
-    public void setMid(String mid) {
-        this.mid = mid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(Double salary) {
-        this.salary = salary;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    private String note;
-    private Integer age;
-    private Double salary;
-    private Date birthday;
-
+@SuppressWarnings("serial")
+public class Member implements Serializable {
+	private String mid ;
+	private String password ;
+	private String name ;
+	private Integer sflag ;
+	private Date regdate ;
+	private Integer locked ;
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public Integer getSflag() {
+		return sflag;
+	}
+	public void setSflag(Integer sflag) {
+		this.sflag = sflag;
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	public Integer getLocked() {
+		return locked;
+	}
+	public void setLocked(Integer locked) {
+		this.locked = locked;
+	} 
 }

@@ -2,6 +2,9 @@ $(function() {
 	$("#imageCode").on("click",function(){
 		$("#imageCode").attr("src","captcha.jpg?p=" + Math.random()) ;
 	}) ;
+	$("#test").onclick=function () {
+		alert("点了")
+	}
 	$("#myform").validate({
 		debug : true, // 取消表单的提交操作
 		submitHandler : function(form) {
@@ -28,15 +31,15 @@ $(function() {
 		errorClass : "text-danger",
 		rules : {
 			"mid" : {
-				required : true 
+				required : true
 			},
-			"password" : { 
+			"password" : {
 				required : true
 			} ,
 			"code" : {
 				required : true ,
 				remote : {
-					url : "checkRandAndCode.action", // 后台处理程序
+					url : "checkRandAndCode", // 后台处理程序
 					type : "post", // 数据发送方式
 					dataType : "html", // 接受数据格式
 					data : { // 要传递的数据
@@ -47,7 +50,7 @@ $(function() {
 					dataFilter : function(data, type) {
 						if (data.trim() == "true") {
 							return true;
-						} else { 
+						} else {
 							return false;
 						}
 					}

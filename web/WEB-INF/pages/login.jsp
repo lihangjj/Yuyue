@@ -2,13 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/pages/plugins/include_basepath.jsp" %>
 <% 
-	String loginUrl = basePath + "loginUrl.action" ;
+	String loginUrl = basePath + "loginUrl" ;
 %>
 <html>
 <head>
 <base href="<%=basePath%>">
 <jsp:include page="/WEB-INF/pages/plugins/include_javascript.jsp" />
-<script type="text/javascript" src="js/pages/login.js"></script>
+<script type="text/javascript" src="/js/pages/login.js"></script>
 </head>
 <body>
 	<div class="container contentback" >
@@ -62,7 +62,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-md-3 col-md-offset-3">
-									<input type="submit" value="登录" class="btn btn-primary">
+									<input type="submit" id="test" value="登录" class="btn btn-primary">
 									<input type="reset" value="重置" class="btn btn-warning">
 								</div>
 							</div>
